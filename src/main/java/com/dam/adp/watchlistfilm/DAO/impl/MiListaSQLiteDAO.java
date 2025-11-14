@@ -6,7 +6,7 @@ import com.dam.adp.watchlistfilm.model.MiLista;
 import java.sql.SQLException;
 import java.util.List;
 
-public class MiListaSQLiteImpl implements IMiListaDAO {
+public class MiListaSQLiteDAO implements IMiListaDAO {
     @Override
     public List<MiLista> getListaCompletaPorUsuarioId(int usuarioId) throws SQLException {
         return List.of();

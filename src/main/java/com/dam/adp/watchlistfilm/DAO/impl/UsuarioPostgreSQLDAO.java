@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.List;
 import org.mindrot.jbcrypt.BCrypt;
 
-public class UsuarioPostgreSQLImpl implements IUsuarioDAO {
+public class UsuarioPostgreSQLDAO implements IUsuarioDAO {
 
 
     private final String INSERT = "INSERT INTO Usuario (nombre_usuario, email, password_hash) VALUES (?, ?, ?)";
@@ -23,7 +23,7 @@ public class UsuarioPostgreSQLImpl implements IUsuarioDAO {
 
 
 
-    public UsuarioPostgreSQLImpl() {
+    public UsuarioPostgreSQLDAO() {
 
         this.connection = ConexionPostgreSQL.getInstance().getConnection();
     }

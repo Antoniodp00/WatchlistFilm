@@ -3,6 +3,7 @@ package com.dam.adp.watchlistfilm.DAO.impl;
 import com.dam.adp.watchlistfilm.DAO.IMiListaDAO;
 import com.dam.adp.watchlistfilm.DAO.IPeliculaDAO;
 import com.dam.adp.watchlistfilm.DAO.IUsuarioDAO;
+import com.dam.adp.watchlistfilm.db.ConexionPostgreSQL;
 import com.dam.adp.watchlistfilm.model.MiLista;
 import com.dam.adp.watchlistfilm.DAO.DAOFactory;
 import com.dam.adp.watchlistfilm.model.Pelicula;
@@ -15,7 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MiListaPostgreSQLImpl implements IMiListaDAO {
+public class MiListaPostgreSQLDAO implements IMiListaDAO {
 
     private static final String SELECT_BY_USER_ID = "SELECT * FROM MiLista WHERE usuario_id = ?";
     private static final String INSERT = "INSERT INTO MiLista (usuario_id, pelicula_id, estado, puntuacion) VALUES (?, ?, 'PENDIENTE', null)";
@@ -25,8 +26,8 @@ public class MiListaPostgreSQLImpl implements IMiListaDAO {
 
     private Connection connection;
 
-    public MiListaPostgreSQLImpl() {
-        this.connection = connection;
+    public MiListaPostgreSQLDAO() {
+        this.connection = ConexionPostgreSQL.getInstance().getConnection();
     }
 
 

@@ -1,65 +1,103 @@
 package com.dam.adp.watchlistfilm.DAO;
 
-// Importa las implementaciones que VAMOS a crear
-import com.dam.adp.watchlistfilm.DAO.IMiListaDAO;
-import com.dam.adp.watchlistfilm.DAO.IPeliculaDAO;
-import com.dam.adp.watchlistfilm.DAO.IUsuarioDAO;
-import com.dam.adp.watchlistfilm.DAO.impl.PeliculaPostgreSQLImpl;
-import com.dam.adp.watchlistfilm.DAO.impl.PeliculaSQLiteImpl;
-import com.dam.adp.watchlistfilm.DAO.impl.UsuarioPostgreSQLImpl;
-import com.dam.adp.watchlistfilm.DAO.impl.UsuarioSQLiteImpl;
-import com.dam.adp.watchlistfilm.DAO.impl.MiListaPostgreSQLImpl;
-import com.dam.adp.watchlistfilm.DAO.impl.MiListaSQLiteImpl;
+// Importa todas las implementaciones de PostgreSQL
+import com.dam.adp.watchlistfilm.DAO.impl.PeliculaPostgreSQLDAO;
+import com.dam.adp.watchlistfilm.DAO.impl.UsuarioPostgreSQLDAO;
+import com.dam.adp.watchlistfilm.DAO.impl.MiListaPostgreSQLDAO;
+import com.dam.adp.watchlistfilm.DAO.impl.ActorPostgreSQLDAO;
+import com.dam.adp.watchlistfilm.DAO.impl.DirectorPostgreSQLDAO;
+import com.dam.adp.watchlistfilm.DAO.impl.GeneroPostgreSQLDAO;
+import com.dam.adp.watchlistfilm.DAO.impl.ClasificacionPostgreSQLDAO;
 
 /**
  * Factory (Fábrica) para gestionar la creación de objetos DAO.
- * Esta es la clase clave que permite cambiar entre el modo Online (PostgreSQL)
- * y el modo Offline (SQLite) sin que el Controlador se entere.
+ * Es el interruptor central para cambiar entre BBDD Online y Offline.
  */
 public class DAOFactory {
 
-    // Esta variable estática será el interruptor principal de la app.
-    // El LoginController la cambiará a 'true' si el usuario marca "Modo Offline".
     public static boolean modoOffline = false;
 
     /**
-     * Devuelve la implementación correcta de IUsuarioDAO según el modo.
-     * @return un objeto que implementa IUsuarioDAO.
+     * Devuelve la implementación correcta de IUsuarioDAO (Login/Registro).
      */
     public static IUsuarioDAO getUsuarioDAO() {
         if (modoOffline) {
-            // Devuelve la implementación de SQLite
-            return new UsuarioSQLiteImpl();
+            // Devuelve la implementación de SQLite (Debe ser creada en el paso final)
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
         } else {
-            // Devuelve la implementación de PostgreSQL
-            return new UsuarioPostgreSQLImpl();
+            return new UsuarioPostgreSQLDAO();
         }
     }
 
     /**
-     * Devuelve la implementación correcta de IPeliculaDAO según el modo.
-     * @return un objeto que implementa IPeliculaDAO.
+     * Devuelve la implementación correcta de IPeliculaDAO (Catálogo y Búsquedas).
      */
     public static IPeliculaDAO getPeliculaDAO() {
         if (modoOffline) {
-            return new PeliculaSQLiteImpl();
+            // return new PeliculaSQLiteDAO();
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
         } else {
-            return new PeliculaPostgreSQLImpl();
+            return new PeliculaPostgreSQLDAO();
         }
     }
 
     /**
-     * Devuelve la implementación correcta de IMiListaDAO según el modo.
-     * @return un objeto que implementa IMiListaDAO.
+     * Devuelve la implementación correcta de IMiListaDAO (CRUD de la lista de usuario).
      */
     public static IMiListaDAO getMiListaDAO() {
         if (modoOffline) {
-            return new MiListaSQLiteImpl();
+            // return new MiListaSQLiteDAO();
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
         } else {
-            return new MiListaPostgreSQLImpl();
+            return new MiListaPostgreSQLDAO();
         }
     }
 
-    // (Opcional: Si la importación CSV es muy compleja,
-    // podría tener su propio DAO/Servicio y ser gestionada aquí también)
+    /**
+     * Devuelve la implementación correcta de IActorDAO.
+     */
+    public static IActorDao getActorDAO() {
+        if (modoOffline) {
+            // return new ActorSQLiteDAO();
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
+        } else {
+            return new ActorPostgreSQLDAO();
+        }
+    }
+
+    /**
+     * Devuelve la implementación correcta de IDirectorDAO.
+     */
+    public static IDirectorDAO getDirectorDAO() {
+        if (modoOffline) {
+            // return new DirectorSQLiteDAO();
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
+        } else {
+            return new DirectorPostgreSQLDAO();
+        }
+    }
+
+    /**
+     * Devuelve la implementación correcta de IGeneroDAO.
+     */
+    public static IGeneroDAO getGeneroDAO() {
+        if (modoOffline) {
+            // return new GeneroSQLiteDAO();
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
+        } else {
+            return new GeneroPostgreSQLDAO();
+        }
+    }
+
+    /**
+     * Devuelve la implementación correcta de IClasificacionDAO.
+     */
+    public static IClasificacionDAO getClasificacionDAO() {
+        if (modoOffline) {
+            // return new ClasificacionSQLiteDAO();
+            throw new UnsupportedOperationException("Modo Offline (SQLite) aún no implementado.");
+        } else {
+            return new ClasificacionPostgreSQLDAO();
+        }
+    }
 }

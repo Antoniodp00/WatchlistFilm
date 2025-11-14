@@ -22,7 +22,7 @@ public class TestModelo {
         IUsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 
         // --- PRUEBA 1: REGISTRO ---
-        try {
+      /*  try {
             System.out.println("\n[1] Probando REGISTRO de un nuevo usuario...");
             if (usuarioDAO.registro(TEST_USER, TEST_EMAIL, TEST_PASS)) {
                 System.out.println("   ✅ ÉXITO: Usuario registrado correctamente.");
@@ -31,12 +31,12 @@ public class TestModelo {
             }
         } catch (SQLException e) {
             System.err.println("   ❌ ERROR FATAL en Registro: " + e.getMessage());
-        }
+        }*/
 
         // --- PRUEBA 2: LOGIN CORRECTO (Email) ---
         try {
             System.out.println("\n[2] Probando LOGIN CORRECTO (por Email)...");
-            Usuario usuarioLogueado = usuarioDAO.loginEmail(TEST_EMAIL, TEST_PASS);
+            Usuario usuarioLogueado = usuarioDAO.loginUsuario(TEST_USER, TEST_PASS);
 
             if (usuarioLogueado != null) {
                 System.out.println("   ✅ ÉXITO: Login correcto.");

@@ -6,7 +6,7 @@ import com.dam.adp.watchlistfilm.model.Pelicula;
 import java.sql.SQLException;
 import java.util.List;
 
-public class PeliculaPostgreSQLImpl implements IPeliculaDAO {
+public class PeliculaSQLiteDAO implements IPeliculaDAO {
     @Override
     public Pelicula getPeliculaCompletaPorId(int id) throws SQLException {
         return null;
