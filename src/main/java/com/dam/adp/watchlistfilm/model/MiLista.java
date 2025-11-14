@@ -10,16 +10,16 @@ public class MiLista {
     private int puntuacion;
     private String imagen_personal_path;
 
-    // Referencia al "Padre"
+
     private Usuario usuario;
-    // Referencia a la "Entidad Descrita"
+
     private Pelicula pelicula;
 
-    // Constructor vacío
+
     public MiLista() {
     }
 
-    // --- Getters y Setters ---
+
 
     public String getEstado() { return estado; }
     public void setEstado(String estado) { this.estado = estado; }

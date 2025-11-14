@@ -11,7 +11,8 @@ module com.dam.adp.watchlistfilm {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.sql;
+    requires jbcrypt;
 
-    opens com.dam.adp.watchlistfilm to javafx.fxml;
-    exports com.dam.adp.watchlistfilm;
+   /* opens com.dam.adp.watchlistfilm to javafx.fxml;
+    exports com.dam.adp.watchlistfilm;*/
 }

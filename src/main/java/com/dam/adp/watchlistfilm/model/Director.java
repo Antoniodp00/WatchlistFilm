@@ -6,22 +6,21 @@ public class Director {
     private int director_id;
     private String nombre_director;
 
-    // Constructor vacío
     public Director() {
     }
 
-    // Constructor para insertar (sin ID)
+
     public Director(String nombre_director) {
         this.nombre_director = nombre_director;
     }
 
-    // Constructor completo (para leer)
+
     public Director(int director_id, String nombre_director) {
         this.director_id = director_id;
         this.nombre_director = nombre_director;
     }
 
-    // --- Getters y Setters ---
+
 
     public int getDirector_id() {
         return director_id;

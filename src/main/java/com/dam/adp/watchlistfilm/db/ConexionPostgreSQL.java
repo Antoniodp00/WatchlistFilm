@@ -8,13 +8,13 @@ import java.util.Properties;
 
 public class ConexionPostgreSQL {
 
-    // 1. La única instancia (Singleton)
+
     private static ConexionPostgreSQL instancia;
 
-    private Connection connection;
+    private static Connection connection;
     private Properties properties;
 
-    // 2. Constructor privado
+
     private ConexionPostgreSQL() {
         try {
             // Cargar propiedades desde el archivo config.properties
@@ -42,7 +42,7 @@ public class ConexionPostgreSQL {
         }
     }
 
-    // 3. Método público para obtener la instancia
+
     public static synchronized ConexionPostgreSQL getInstance() {
         if (instancia == null) {
             instancia = new ConexionPostgreSQL();
@@ -50,12 +50,12 @@ public class ConexionPostgreSQL {
         return instancia;
     }
 
-    // Método para obtener la conexión y usarla en los DAOs
+
     public Connection getConnection() {
         return this.connection;
     }
 
-    // Método para cerrar la conexión (opcional, al cerrar la app)
+
     public void close() {
         try {
             if (this.connection != null && !this.connection.isClosed()) {

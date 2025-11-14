@@ -6,11 +6,11 @@ public class Actor {
     private int actor_id;
     private String nombre_actor;
 
-    // Constructor vacío
+
     public Actor() {
     }
 
-    // Constructor para insertar (sin ID)
+
     public Actor(String nombre_actor) {
         this.nombre_actor = nombre_actor;
     }
@@ -21,7 +21,7 @@ public class Actor {
         this.nombre_actor = nombre_actor;
     }
 
-    // --- Getters y Setters ---
+
 
     public int getActor_id() {
         return actor_id;

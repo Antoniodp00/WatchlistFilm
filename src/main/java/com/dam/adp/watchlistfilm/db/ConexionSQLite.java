@@ -22,10 +22,7 @@ public class ConexionSQLite {
             this.connection = DriverManager.getConnection(URL);
             System.out.println("Conexión a SQLite (Offline) establecida.");
 
-            // --- ¡NUEVA LÍNEA! ---
-            // Ejecutamos el script de creación de tablas
             this.crearTablasSiNoExisten(this.connection);
-            // --------------------
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,7 +30,7 @@ public class ConexionSQLite {
         }
     }
 
-    // 3. Método público para obtener la instancia (igual)
+
     public static synchronized ConexionSQLite getInstance() {
         if (instancia == null) {
             instancia = new ConexionSQLite();
@@ -66,7 +63,6 @@ public class ConexionSQLite {
 
                 for (String comando : comandos) {
 
-                    // --- ¡ESTA ES LA LÍNEA NUEVA! ---
                     // Limpiamos el comando: quitamos comentarios (--) y espacios
                     String sql = comando.replaceAll("--.*", "").trim();
 
@@ -75,7 +71,6 @@ public class ConexionSQLite {
                         stmt.execute(sql);
                     }
                 }
-                // ¡Este mensaje es el que queremos ver!
                 System.out.println("Tablas de SQLite (Offline) verificadas/creadas con éxito.");
             }
 
@@ -83,18 +78,12 @@ public class ConexionSQLite {
             System.err.println("Error al ejecutar el script de creación de BBDD SQLite.");
             e.printStackTrace();
 
-            // --- ¡IMPORTANTE! ---
-            // Si algo falla, relanzamos la excepción para que el constructor falle
             throw new RuntimeException("Fallo al inicializar la BBDD SQLite", e);
         }
     }
-
-    // Método para obtener la conexión (igual)
     public Connection getConnection() {
         return this.connection;
     }
-
-    // Método para cerrar la conexión (igual)
     public void close() {
         try {
             if (this.connection != null && !this.connection.isClosed()) {

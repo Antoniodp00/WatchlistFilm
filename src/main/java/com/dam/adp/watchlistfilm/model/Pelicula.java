@@ -22,11 +22,10 @@ public class Pelicula {
     private List<Actor> actores;
     private List<Genero> generos;
 
-    // Constructor vacío
+
     public Pelicula() {
     }
 
-    // Constructor completo (¡fíjate cómo ha cambiado!)
     public Pelicula(int pelicula_id, String titulo, int ano_lanzamiento, double imdb_rating,
                     int duracion_min, Clasificacion clasificacion, List<Director> directores,
                     List<Actor> actores, List<Genero> generos) {

@@ -9,18 +9,18 @@ public class Genero {
     public Genero() {
     }
 
-    // Constructor para insertar (sin ID)
+
     public Genero(String nombre_genero) {
         this.nombre_genero = nombre_genero;
     }
 
-    // Constructor completo (para leer)
+
     public Genero(int genero_id, String nombre_genero) {
         this.genero_id = genero_id;
         this.nombre_genero = nombre_genero;
     }
 
-    // --- Getters y Setters ---
+
 
     public int getGenero_id() {
         return genero_id;

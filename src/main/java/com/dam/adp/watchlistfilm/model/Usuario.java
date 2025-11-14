@@ -12,10 +12,9 @@ public class Usuario {
     private String email;
     private String password_hash;
 
-    // La lista personal del usuario
     private List<MiLista> miListaDePeliculas;
 
-    // (Constructores, Getters y Setters para los campos simples)
+
 
     public Usuario() {}
     public int getUsuario_id() { return usuario_id; }
@@ -28,7 +27,6 @@ public class Usuario {
     public void setPassword_hash(String password_hash) { this.password_hash = password_hash; }
 
 
-    // Getter y Setter para la lista
     public List<MiLista> getMiListaDePeliculas() {
         return miListaDePeliculas;
     }
@@ -39,7 +37,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        // ¡NUNCA imprimas miListaDePeliculas aquí!
         return "Usuario{" +
                 "usuario_id=" + usuario_id +
                 ", nombre_usuario='" + nombre_usuario + '\'' +
